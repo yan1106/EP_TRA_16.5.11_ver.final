@@ -391,7 +391,7 @@
                     //btn.onclick = jj();
                     a = document.getElementById("td_" + count.toString() + "_" + i.toString()).appendChild(btn);
                     
-
+                    btn.onclick = deleteRow;
                 }
                 else{
                     a.innerHTML = count.toString()+'_'+i.toString();
@@ -409,10 +409,10 @@
         }
 
 
-        function deleteRow(r) {
-            /*var i = r.parentNode.parentNode.rowIndex;
-            document.getElementById("doe_1").deleteRow(i);*/
-            document.getElementById()
+        function deleteRow() {
+            var i = this.parentNode.parentNode.rowIndex;
+            document.getElementById("doe_1").deleteRow(i);
+            //document.getElementById()
         }
         
          
