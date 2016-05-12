@@ -342,7 +342,61 @@
             height:50px;
 
         }
-
+        .style-doe-head-blue
+        {
+            width:300px;
+            height:50px;
+            color:white;
+            font-size: 20.0pt;
+            font-weight: 400;
+            font-style: normal;                        
+            text-align: center;
+            vertical-align: middle;
+            white-space: normal;
+            padding-left: 2px;
+            padding-right: 2px;
+            padding-top: 2px;
+            padding-bottom: 2px;
+            
+            background: #538ED5;
+        }
+        .style-doe-head-gray
+        {
+            width:300px;
+            height:50px;
+            color:white;
+            font-size: 20.0pt;
+            font-weight: 400;
+            font-style: normal;                        
+            text-align: center;
+            vertical-align: middle;
+            white-space: normal;
+            padding-left: 2px;
+            padding-right: 2px;
+            padding-top: 2px;
+            padding-bottom: 2px;
+            
+            background: #7F7F7F;
+        }
+        
+        .style-doe-head-orange
+        {
+            width:300px;
+            height:50px;
+            color:white;
+            font-size: 20.0pt;
+            font-weight: 400;
+            font-style: normal;                        
+            text-align: center;
+            vertical-align: middle;
+            white-space: normal;
+            padding-left: 2px;
+            padding-right: 2px;
+            padding-top: 2px;
+            padding-bottom: 2px;
+            
+            background: #FFC000;
+        }
         </style>
      <script type="text/javascript">
          var count = 2;
@@ -365,10 +419,13 @@
             mums3.deleteCell(14);
             mums3.deleteCell(13);
             mums3.deleteCell(12);
-            var btn = document.createElement("BUTTON");
-            var t = document.createTextNode("delete")
-            btn.appendChild(t);
-            document.getElementById("dd1").appendChild(btn);
+            var btn = document.createElement("INPUT");
+            btn.type = "button";
+            btn.id = "but_" + count.toString();
+
+            btn.value = "Delete"                
+            btn.onclick = deleteRow;
+            a = document.getElementById('dd1').appendChild(btn);
             
             }
             else{
@@ -387,11 +444,11 @@
                     btn.id = "but_" + count.toString() + "_" + i.toString();
                     
                     btn.value = "Delete"
-                    //a=document.getElementById("but_" + count.toString() + "_" + i.toString()).onclick = jj();
-                    //btn.onclick = jj();
-                    a = document.getElementById("td_" + count.toString() + "_" + i.toString()).appendChild(btn);
                     
                     btn.onclick = deleteRow;
+                    a = document.getElementById("td_" + count.toString() + "_" + i.toString()).appendChild(btn);
+                    
+
                 }
                 else{
                     a.innerHTML = count.toString()+'_'+i.toString();
@@ -409,10 +466,10 @@
         }
 
 
-        function deleteRow() {
+        function deleteRow(r) {
             var i = this.parentNode.parentNode.rowIndex;
             document.getElementById("doe_1").deleteRow(i);
-            //document.getElementById()
+            
         }
         
          
@@ -453,130 +510,56 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
     
-        <table id="doe1" border="0" cellpadding="0" cellspacing="0" style="border-collapse:
- collapse;width:400pt;" >
-            <colgroup>
-                <col span="3" />
-                <col span="4" />
-                <col />
-                <col span="3"/>
-                <col />
-                <col span="3" />
-            </colgroup>
-            <tr height="119" style="mso-height-source:userset;height:89.25pt">
-                <td class="auto-style1"  rowspan="2">Area</td>
-                <td class="auto-style2" rowspan="2" >Control Item</td>
-                <td class="auto-style2" rowspan="2" >SPEC</td>
-                <td class="auto-style3" colspan="4" rowspan="2" width="180">DOE LEGS<br />
-                    <asp:Button ID="Button2" runat="server" Text="Button" OnClick="Button2_Click" /></td>
-                <td class="auto-style4" rowspan="2" width="176">Wafer Qn&#39;ty</td>
-                <td class="auto-style5" colspan="3" width="255">Wafer Count</td>
-                <td class="auto-style6" rowspan="2" width="396">Atrribute</td>
-                <td class="auto-style7" rowspan="2" width="258">Note</td>
-                <td class="auto-style7" rowspan="2" width="258">Lot Number</td>
-                <td class="auto-style7" rowspan="2" width="258">Due date</td>
-            </tr>
-            <tr style="height:89.25pt">
-                <td class="auto-style8" height="119">DM</td>
-                <td class="auto-style9">PC</td>
-                <td class="auto-style9">Live</td>
-            </tr>
-            <tr id="doe_2" height="130" style="mso-height-source:userset;height:97.5pt">
-                <td class="auto-style10">PR STRIP</td>
-                <td class="auto-style11">Process time</td>
-                <td class="auto-style11">330+/-10%</td>
-                <td class="auto-style11">+</td>
-                <td class="auto-style11">-</td>
-                <td class="auto-style11">0</td>
-                <td class="auto-style11">　</td>
-                <td class="auto-style12" width="176">3</td>
-                <td class="auto-style11">3</td>
-                <td class="auto-style11">　</td>
-                <td class="auto-style11">　</td>
-                <td class="auto-style13">1. ASTI (<font class="font8">十字檢查法</font><font class="font6">)<br />
-                    2. FV Yield (Metal residue yield loss)</font></td>
-                <td class="auto-style11">NA</td>
-                <td class="auto-style11">BPF56180.1</td>
-                <td class="auto-style11">5月24日</td>
-            </tr>
-            <tr height="60" style="mso-height-source:userset;height:45.0pt">
-                <td class="auto-style14" height="60">　</td>
-                <td class="auto-style11">　</td>
-                <td class="auto-style11">　</td>
-                <td class="auto-style11">　</td>
-                <td class="auto-style11">　</td>
-                <td class="auto-style11">　</td>
-                <td class="auto-style11">　</td>
-                <td class="auto-style11">　</td>
-                <td class="auto-style11">　</td>
-                <td class="auto-style11">　</td>
-                <td class="auto-style11">　</td>
-                <td class="auto-style11">　</td>
-                <td class="auto-style11">　</td>
-                <td class="auto-style11">　</td>
-                <td class="auto-style11">　</td>
-            </tr>
-            <tr height="60" style="mso-height-source:userset;height:45.0pt">
-                <td class="auto-style14" height="60">　</td>
-                <td class="auto-style11">　</td>
-                <td class="auto-style11">　</td>
-                <td class="auto-style11">　</td>
-                <td class="auto-style11">　</td>
-                <td class="auto-style11">　</td>
-                <td class="auto-style11">　</td>
-                <td class="auto-style11">　</td>
-                <td class="auto-style11">　</td>
-                <td class="auto-style11">　</td>
-                <td class="auto-style11">　</td>
-                <td class="auto-style11">　</td>
-                <td class="auto-style11">　</td>
-                <td class="auto-style11">　</td>
-                <td class="auto-style11">　</td>
-            </tr>
-            <tr height="60" style="mso-height-source:userset;height:45.0pt">
-                <td class="auto-style14" height="60">　</td>
-                <td class="auto-style11">　</td>
-                <td class="auto-style11">　</td>
-                <td class="auto-style15">　</td>
-                <td class="auto-style15">　</td>
-                <td class="auto-style15">　</td>
-                <td class="auto-style15">　</td>
-                <td class="auto-style15">　</td>
-                <td class="auto-style15">　</td>
-                <td class="auto-style15">　</td>
-                <td class="auto-style15">　</td>
-                <td class="auto-style15">　</td>
-                <td class="auto-style15">　</td>
-                <td class="auto-style15">　</td>
-                <td class="auto-style15">　</td>
-            </tr>
-        </table>
-    <br />
-    <br />
-    <br />
-    </div>
         <div id="div1">
-            <table id="doe_1" border="1" style="border-color:black;width:100%;height:50%;">
+            <!--border-collapse:collapse,要讓欄位邊框合併-->
+            <table id="doe_1" border="2" style="border-color:black;width:100%;height:50%;border-collapse:collapse;">
                  <tr>
-                     <td class="style-doe-head" rowspan="2" ><input type="button" onclick="insert()" value="+" />
+                     <td class="style-doe-head-blue" rowspan="2" >
+                     <input type="button" onclick="insert()" value="+" />
                      <input type="button" onclick="delete_row()" value="-" />
+                     <div>Area</div>
                      </td>
-                     <td class="style-doe-head" rowspan="2"><div id="a1"></div></td>
-                     <td class="style-doe-head" rowspan="2"><div id="a2"></div></td>
-                     <td class="style-doe-head" rowspan="2" colspan="4"></td>
-                     <td class="style-doe-head" rowspan="2" ></td>                  
-                     <td class="style-doe-head-2" colspan="3"></td>
-                     <td class="style-doe-head" rowspan="2"></td>
-                     <td class="style-doe-head" rowspan="2"></td>
-                     <td class="style-doe-head" rowspan="2"></td>
-                     <td class="style-doe-head" rowspan="2"></td>                                      
+                     <td class="style-doe-head-blue" rowspan="2">
+                      <div id="a1"></div>
+                      <div>Control Item</div>
+                     </td>
+                     <td class="style-doe-head-blue" rowspan="2">
+                      <div id="a2"></div>
+                      <div>SPEC</div>
+                     </td>
+                     <td class="style-doe-head-gray" rowspan="2" colspan="4">
+                        <div>DOE LEGS</div>
+                     </td>
+                     <td class="style-doe-head-gray" rowspan="2" >
+                         <div>Wafer Qn'ty</div>
+                     </td>                  
+                     <td class="style-doe-head-orange" colspan="3">
+                         <div>Wafer Count</div>
+                     </td>
+                     <td class="style-doe-head-orange" rowspan="2">
+                         <div>Atrribute</div>
+                     </td>
+                     <td class="style-doe-head-orange" rowspan="2">
+                         <div>Note</div>
+                     </td>
+                     <td class="style-doe-head-orange" rowspan="2">
+                         <div>Lot Number</div>
+                     </td>
+                     <td class="style-doe-head-orange" rowspan="2">
+                         <div>Due date</div>
+                     </td>                                      
                 </tr>
                 <tr>
-                    <td style="width:100px; height:50px"></td>
-                     <td style="width:100px;"></td>
-                     <td style="width:100px;"></td>                                                                           
+                    <td style="width:100px; height:50px" class="style-doe-head-orange">
+                        <div>DM</div>
+                    </td>
+                     <td style="width:100px;" class="style-doe-head-orange">
+                         <div>PC</div>
+                     </td>
+                     <td style="width:100px;" class="style-doe-head-orange">
+                         <div>Live</div>
+                     </td>                                                                           
                 </tr>
                 <tr id="row_2">
                     <td >a</td>
@@ -613,7 +596,7 @@
                      <td >dd14</td>
                      <td >dd15</td>                                          
                 </tr>
-                <tr id="ee">
+                <tr id="ee" style="height:20px">
                      <td></td>
                      <td></td>
                      <td></td>
@@ -631,7 +614,7 @@
                      <td></td>
                                           
                 </tr>
-                <tr>
+                <tr style="height:20px">
                     <td></td>
                      <td></td>
                      <td></td>
